@@ -1,9 +1,15 @@
+import pic1 from './assets/img/pic1.jpg'
+import pic2 from './assets/img/pic2.jpg'
+import pic3 from './assets/img/pic3.jpg'
+import pic4 from './assets/img/pic4.jpg'
+import pic5 from './assets/img/pic5.jpg'
+
 const flowers = [
-  { id: 1, flowerUrl: '../public/img/pic1.jpg', price: 155, bought: false },
-  { id: 2, flowerUrl: '../public/img/pic2.jpg', price: 199, bought: false },
-  { id: 3, flowerUrl: '../public/img/pic3.jpg', price: 280, bought: false },
-  { id: 4, flowerUrl: '../public/img/pic4.jpg', price: 319, bought: false },
-  { id: 5, flowerUrl: '../public/img/pic5.jpg', price: 119, bought: false },
+  { id: 1, flowerUrl: pic1, price: 155, bought: false },
+  { id: 2, flowerUrl: pic2, price: 199, bought: false },
+  { id: 3, flowerUrl: pic3, price: 280, bought: false },
+  { id: 4, flowerUrl: pic4, price: 319, bought: false },
+  { id: 5, flowerUrl: pic5, price: 119, bought: false },
 ]
 
 export default flowers

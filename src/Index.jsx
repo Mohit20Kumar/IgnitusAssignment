@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import ecart from './assets/img/empty-cart.png'
 
 const Main = ({ flowers, addToCart }) => {
   const [addedItem, setAddedItem] = useState(null)
@@ -18,7 +19,7 @@ const Main = ({ flowers, addToCart }) => {
         <p>
           Currently, there are no items in stock. Please come back again
           later...!!
-          <img src="public/img/empty-cart.png"></img>
+          <img src={ecart}></img>
         </p>
       ) : (
         availableFlowers.map((flower) => (
