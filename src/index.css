@@ -1,0 +1,156 @@
+.App {
+  width: 100%;
+}
+
+.main {
+  width: 100%;
+  display: flex;
+  place-items: center;
+}
+.main img {
+  display: block;
+  margin: 0 auto;
+  width: 300px;
+  height: 400px;
+  padding: 10px;
+}
+.cart-icon {
+  float: right;
+}
+.cart-icon img {
+  width: 55px;
+  height: 55px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 1rem;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.cart-count {
+  text-decoration: none;
+  color: black;
+  font-size: 2rem;
+}
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.flower-card {
+  /* width: calc(33.33% - 20px); */
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.flower-card img {
+  max-width: 100%;
+}
+
+.flower-card span {
+  display: block;
+  margin-top: 10px;
+}
+
+.flower-card button {
+  margin-top: 10px;
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .main {
+    justify-content: center;
+  }
+
+  .flower-card {
+    width: calc(100% - 20px);
+  }
+}
+/* For Cart.js */
+.cart {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.my_cart_img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-item {
+  margin: 20px;
+}
+
+.cart-item img {
+  /* max-width: 100%; */
+  width: 300px;
+  height: 450px;
+}
+
+.cart-item span {
+  display: block;
+  margin-top: 10px;
+}
+
+.cart p {
+  font-size: 1.2rem;
+}
+
+.cart button {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.item-added-message {
+  background-color: #28a745;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 5px;
+  font-size: 14px;
+  display: inline-block;
+}
+
+p {
+  font-size: 3rem;
+}
