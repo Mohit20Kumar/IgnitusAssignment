@@ -103,13 +103,15 @@ const Cart = ({ cart, buyItems }) => {
           <p>Total Price: ${totalPrice}</p>
           <button
             onClick={async () => {
-              const status = await payEth()
-              if (status) {
+              try {
+                console.log('waiting for the transaction.......')
+                await payEth()
+                // console.log('Transaction Responded with : ', status)
                 buyItems()
                 alert('Buy Successful!')
                 navigate('/')
-              } else {
-                alert('Transaction Cancelled/Failed')
+              } catch (err) {
+                console.log(err)
               }
             }}
           >
