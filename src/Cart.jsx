@@ -53,10 +53,10 @@ const Cart = ({ cart, buyItems }) => {
       // Create a new instance of the Contract with a Signer, which allows
       // update methods
       const flowersContract = new ethers.Contract(CONTRACT_ADDRESS, abi, signer)
-      // call the addAddressToWhitelist from the contract
-      const tx = await flowersContract.sendEth()
-      // setLoading(true)
-      // wait for the transaction to get mined
+
+      const amountToSend = ethers.utils.parseEther('0.01') // Convert 0.01 ETH to Wei
+
+      const tx = await flowersContract.sendEth({ value: amountToSend })
       const receipt = await tx.wait()
 
       if (receipt.status === 1) {
@@ -66,11 +66,6 @@ const Cart = ({ cart, buyItems }) => {
         console.log('error')
         return false
       }
-
-      // setLoading(false)
-      // get the updated number of addresses in the whitelist
-      // await getNumberOfWhitelisted()
-      // setJoinedWhitelist(true)
     } catch (err) {
       console.error(err)
       return false
@@ -110,7 +105,7 @@ const Cart = ({ cart, buyItems }) => {
               </div>
             ))}
           </div>
-          <p>Total Price in ETH: 0.00004</p>
+          <p>Total Price in ETH: 0.01</p>
           <button
             onClick={async () => {
               try {
@@ -121,11 +116,11 @@ const Cart = ({ cart, buyItems }) => {
                   alert('Payment Successful!')
                   navigate('/')
                 } else {
-                  alert('Payment Failed.')
+                  alert('Payment Failed. Check Console for more details.')
                 }
               } catch (err) {
                 console.log(err)
-                alert('Payment Failed.')
+                alert('Payment Failed. Check console for more details.')
               }
             }}
           >
