@@ -57,13 +57,23 @@ const Cart = ({ cart, buyItems }) => {
       const tx = await flowersContract.sendEth()
       // setLoading(true)
       // wait for the transaction to get mined
-      await tx.wait()
+      const receipt = await tx.wait()
+
+      if (receipt.status === 1) {
+        console.log('Successfull!!')
+        return true
+      } else {
+        console.log('error')
+        return false
+      }
+
       // setLoading(false)
       // get the updated number of addresses in the whitelist
       // await getNumberOfWhitelisted()
       // setJoinedWhitelist(true)
     } catch (err) {
       console.error(err)
+      return false
     }
   }
 
@@ -100,18 +110,22 @@ const Cart = ({ cart, buyItems }) => {
               </div>
             ))}
           </div>
-          <p>Total Price: ${totalPrice}</p>
+          <p>Total Price in ETH: 0.00004</p>
           <button
             onClick={async () => {
               try {
                 console.log('waiting for the transaction.......')
-                await payEth()
-                // console.log('Transaction Responded with : ', status)
-                buyItems()
-                alert('Buy Successful!')
-                navigate('/')
+                const isTransactionSuccessful = await payEth()
+                if (isTransactionSuccessful) {
+                  buyItems()
+                  alert('Payment Successful!')
+                  navigate('/')
+                } else {
+                  alert('Payment Failed.')
+                }
               } catch (err) {
                 console.log(err)
+                alert('Payment Failed.')
               }
             }}
           >
